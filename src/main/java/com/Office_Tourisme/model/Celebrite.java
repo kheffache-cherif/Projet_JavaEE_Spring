@@ -1,139 +1,94 @@
 package com.Office_Tourisme.model;
+
+
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Entity // JPA pour la notation Entity    Maping relationnel
-@Table(name = "Celebrite")  // juste pour donner un nom à cette table facultatif
+@Entity
 public class Celebrite implements Serializable{
 	
+	private static final long serialVersionUID = 8437833828020336290L;
 	
-	@Id /* pour spécifier identifiant et si il est generer */
-	@Column (name= "num_Celebrite")
-	private Integer num_Celebrite;
-	
-	@Column (name = "epoque", length = 6)
+	@Id
+	private int numCelebrite;
+	private String nom;
+	private String prenom;
+	private String nationalite;
 	private String epoque;
 	
-	@Column (name = "nationalite", length = 10)
-	private String nationalite ;
 	
-	@Column (name = "nom",length = 16)
-	private String  nom;
+	@ManyToMany(cascade=CascadeType.ALL) 
+    @JoinTable(name="associea", joinColumns= { @JoinColumn(name="numCelebrite") }, inverseJoinColumns= { @JoinColumn(name="codeM") }) 
+	private Set<Monument> monuments; 
 	
-	@Column (name = "prenom", length = 16)
-	private String prenom;
-	
-	
-	/* assoction car  celebrites peut avoir plusieur monument
-	/* mappedBy car c'est une association bidiractionnelle
-	 * apres on va spécifier dans la classe mMonument est representer par attribut monument
-	 * fetch: Lazy c'est mode qui va etre utiliser pour gerer les associations entre class   */
-	@ManyToMany(mappedBy = "celebrites",fetch=FetchType.LAZY)
-	private Collection<Monument> monuments;
-
-	
-	
-	
-	/*-------------------- Constructeurs  -------------------------*/
-
 	public Celebrite() {
-		super();
+	
 	}
 
-
-	public Celebrite(Integer num_Celebrite, String epoque, String nationalite, String nom, String prenom) {
+	public Celebrite(int numCelebrite, String nom, String prenom, String nationalite, String epoque) {
 		super();
-		this.num_Celebrite = num_Celebrite;
-		this.epoque = epoque;
-		this.nationalite = nationalite;
+		this.numCelebrite = numCelebrite;
 		this.nom = nom;
 		this.prenom = prenom;
-	
-	}
-
-
-	/*-------------------- gueters setters--------------------*/
-
-	public Integer getNum_Celebrite() {
-		return num_Celebrite;
-	}
-
-
-	public void setNum_Celebrite(Integer num_Celebrite) {
-		this.num_Celebrite = num_Celebrite;
-	}
-
-
-	public String getEpoque() {
-		return epoque;
-	}
-
-
-	public void setEpoque(String epoque) {
+		this.nationalite = nationalite;
 		this.epoque = epoque;
 	}
 
-
-	public String getNationalite() {
-		return nationalite;
+	public int getNumCelebrite() {
+		return numCelebrite;
 	}
 
-
-	public void setNationalite(String nationalite) {
-		this.nationalite = nationalite;
+	public void setNumCelebrite(int numCelebrite) {
+		this.numCelebrite = numCelebrite;
 	}
-
 
 	public String getNom() {
 		return nom;
 	}
 
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 
 	public String getPrenom() {
 		return prenom;
 	}
 
-
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
-
-	public Collection<Monument> getMonuments() {
-		return monuments;
+	public String getNationalite() {
+		return nationalite;
 	}
 
-
-	public void setMonuments(Collection<Monument> monuments) {
-		this.monuments = monuments;
+	public void setNationalite(String nationalite) {
+		this.nationalite = nationalite;
 	}
 
+	public String getEpoque() {
+		return epoque;
+	}
+
+	public void setEpoque(String epoque) {
+		this.epoque = epoque;
+	}
 
 	@Override
 	public String toString() {
-		return "Celebrite [num_Celebrite=" + num_Celebrite + ", epoque=" + epoque + ", nationalite=" + nationalite
-				+ ", nom=" + nom + ", prenom=" + prenom + "]";
+		return "Celebrite [numCelebrite=" + numCelebrite + ", nom=" + nom + ", prenom=" + prenom + ", nationalite="
+				+ nationalite + ", epoque=" + epoque + "]";
 	}
 	
-	
-	
+	 public Set<Monument> getMonuments()  
+	    {  
+	        return monuments;  
+	    }  
+	    public void setMonuments(Set<Monument> monuments)  
+	    {  
+	        this.monuments = monuments;  
+	    }  
+
 }
-
-
