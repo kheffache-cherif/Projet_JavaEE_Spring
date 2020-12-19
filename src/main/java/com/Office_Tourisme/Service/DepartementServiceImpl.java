@@ -2,14 +2,14 @@ package com.Office_Tourisme.Service;
 
 import java.util.List;
 
-
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.Office_Tourisme.dao.IDepartementDao;
 import com.Office_Tourisme.model.Departement;
-
+@Service
 @Transactional
-public class DepartementService implements IDepartementService{
+public class DepartementServiceImpl implements IDepartementService{
 	
 	private IDepartementDao daod;
 

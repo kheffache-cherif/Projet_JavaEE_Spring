@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
-import com.Office_Tourisme.Repository.CelebriteRepository;
+//import com.Office_Tourisme.Repository.CelebriteRepository;
 import com.Office_Tourisme.model.Celebrite;
 
 
 @SpringBootTest
 class OfficeDeTourismeApplicationTests {
-
+/*
 	
 	@Autowired   // pour que spring injecte cet objet de type repository
 	private CelebriteRepository celebriteRepository; // declaration objet de type de notre interface 
@@ -48,5 +48,5 @@ class OfficeDeTourismeApplicationTests {
 		for (Celebrite c:celebs)
 			System.out.println(c);
 	}
-	
+	*/
 }

@@ -8,7 +8,7 @@ import com.Office_Tourisme.dao.IUtilisateurDao;
 import com.Office_Tourisme.model.Utilisateur;
 
 @Transactional
-public class UtilisateurService implements IUtilisateurService{
+public class UtilisateurServiceImpl implements IUtilisateurService{
 	
 	private IUtilisateurDao
 	daou;

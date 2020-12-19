@@ -9,7 +9,7 @@ import com.Office_Tourisme.dao.ILieuDao;
 import com.Office_Tourisme.model.Lieu;
 
 @Transactional
-public class LieuService implements ILieuService{
+public class LieuServiceImpl implements ILieuService{
 	
 	private ILieuDao daol;
 

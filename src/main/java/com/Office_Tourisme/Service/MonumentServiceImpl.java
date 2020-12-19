@@ -8,7 +8,7 @@ import com.Office_Tourisme.dao.IMonumentDao;
 import com.Office_Tourisme.model.Monument;
 
 @Transactional
-public class MonumentService implements IMonumentService{
+public class MonumentServiceImpl implements IMonumentService{
 	
 	private IMonumentDao dao;
 
