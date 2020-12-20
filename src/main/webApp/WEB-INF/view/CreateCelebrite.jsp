@@ -1,4 +1,4 @@
-<!--<%@ page language="java" contentType="text/html; charset=windows-1256"pageEncoding="windows-1256"%>
+<%@ page language="java" contentType="text/html; charset=windows-1256"pageEncoding="windows-1256"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,4 +21,4 @@ ${msg}
 <br/>
 <a href="ListeProduits">Liste Des Celebrites</a>
 </body>
-</html> -->
+</html> 
