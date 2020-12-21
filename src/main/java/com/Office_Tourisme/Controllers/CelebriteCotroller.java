@@ -1,6 +1,7 @@
 package com.Office_Tourisme.Controllers;
 
 import java.text.ParseException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,15 @@ public class CelebriteCotroller {
 		Celebrite saveCelebrite = celebriteService.saveCelebrite(celebrite);  //la methode save du service avec comme paramettre l'objet celeb
 		 String msg ="clebrite enregistré avec Id "+saveCelebrite.getNumCelebrite();
 		 modelMap.addAttribute("msg", msg); //je passe le message à modelMap declarer en haut 
-		return "createCelebrite";
+		return "CreateCelebrite";
+		
 	}
+		
+		@RequestMapping("/ListeCelebrite")
+		public String listeCelebrites(ModelMap modelMap)
+		{
+			List<Celebrite>celebs = celebriteService.getAllCelebrites();
+			modelMap.addAttribute("celebrites", celebs);		
+			return "ListeCelebrite";	
+		}
 }
