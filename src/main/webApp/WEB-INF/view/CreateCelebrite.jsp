@@ -25,6 +25,6 @@
 ${msg}
 <br/>
 <br/>
-<a href="ListeCelebrite">ListeCelebrites</a>
+<a href="ListeCelebrites">ListeCelebrites</a>
 </body>
 </html> 

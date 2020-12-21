@@ -39,11 +39,45 @@ public class CelebriteCotroller {
 		
 	}
 		
-		@RequestMapping("/ListeCelebrite")
+		@RequestMapping("/ListeCelebrites")
 		public String listeCelebrites(ModelMap modelMap)
 		{
 			List<Celebrite>celebs = celebriteService.getAllCelebrites();
 			modelMap.addAttribute("celebrites", celebs);		
-			return "ListeCelebrite";	
+			return "ListeCelebrites";	
 		}
+		
+		
+		@RequestMapping("/supprimerCelebrite")
+		public String supprimerCelebrite(@RequestParam("id") Integer id,
+				ModelMap modelMap)
+		{
+			//Celebrite c = new Celebrite();
+			//c.setNumCelebrite(id);
+			celebriteService.deleteCelebriteById(id);
+			List<Celebrite>celebs = celebriteService.getAllCelebrites();
+			modelMap.addAttribute("celebrites", celebs);		
+			return "ListeCelebrites";
+		}
+		
+		@RequestMapping("/modifierCelebrite")
+		public String editerCelebrite(@RequestParam("id") Integer id,ModelMap modelMap)
+		{
+			Celebrite c= 	celebriteService.getCelebrite(id);
+			modelMap.addAttribute("celebrite", c);	
+			return "editerCelebrite";	
+		}
+
+		@RequestMapping("/updateCelebrite")
+		public String updateCelebrite(@ModelAttribute("celebrite") Celebrite celebrite,
+				                    ModelMap modelMap) {
+			 celebriteService.updateCelebrite(celebrite);
+			 List<Celebrite>celebs = celebriteService.getAllCelebrites();
+				modelMap.addAttribute("celebrites", celebs);		
+				return "ListeCelebrites";
+			
+			
+		}
+			
+		
 }
