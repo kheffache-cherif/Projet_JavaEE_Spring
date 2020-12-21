@@ -41,6 +41,7 @@ class OfficeDeTourismeApplicationTests {
 	@Test
 	public void testDeleteCelebrite() {
 		celebriteRepository.deleteById(25);
+		
 	}
 	
 	*/

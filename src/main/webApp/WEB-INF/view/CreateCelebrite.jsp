@@ -1,17 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=windows-1256"pageEncoding="windows-1256"%>
+<%@ page language="java" contentType="text/html; charset=windows-1256"
+	pageEncoding="windows-1256"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="windows-1256">
-<title>Créer une Celebrite </title>
+<accept-charset=utf-8>
+<title>Créer Celebrite</title>
 </head>
 <body>
+
 <form action="saveCelebrite" method="post">
 <pre>
-nationalite : <input type="text" name="nationalite">
-Epoque : <input type="text" name="epoque">
-nom : <input type="text" name="nom">
-prenom : <input type="text" name="prenom">
+	numCelebrite : <input type="number" name="numCelebrite">
+	nom : <input type="text" name="nom">
+	prenom : <input type="text" name="prenom">
+	nationalite : <input type="text" name="nationalite">
+	epoque : <input type="text" name="epoque">
+
+
 
 <input type="submit" value="ajouter">
 </pre>
@@ -19,6 +25,6 @@ prenom : <input type="text" name="prenom">
 ${msg}
 <br/>
 <br/>
-<a href="ListeProduits">Liste Des Celebrites</a>
+<a href="ListeProduits">ListeCelebrites</a>
 </body>
 </html> 
