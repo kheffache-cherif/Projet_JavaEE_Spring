@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,30 +41,45 @@ public class CelebriteCotroller {
 	}
 		
 		@RequestMapping("/ListeCelebrites")
-		public String listeCelebrites(ModelMap modelMap)
+		public String listeCelebrites(ModelMap modelMap,
+		@RequestParam (name="page",defaultValue = "0") int page,
+		@RequestParam (name="size", defaultValue = "2") int size)
 		{
-			List<Celebrite>celebs = celebriteService.getAllCelebrites();
+			//List<Celebrite>celebs = celebriteService.getAllCelebrites();
+			//modelMap.addAttribute("celebrites", celebs);		
+			//return "ListeCelebrites";	
+			
+			Page<Celebrite> celebs = celebriteService.getAllCelebritesParPage(page, size);
 			modelMap.addAttribute("celebrites", celebs);		
-			return "ListeCelebrites";	
+			modelMap.addAttribute("pages", new int[celebs.getTotalPages()]);	
+			modelMap.addAttribute("currentPage", page);	
+			return "listeCelebrites";
 		}
 		
 		
 		@RequestMapping("/supprimerCelebrite")
 		public String supprimerCelebrite(@RequestParam("id") Integer id,
-				ModelMap modelMap)
+				ModelMap modelMap,
+				@RequestParam (name="page",defaultValue = "0") int page,
+				@RequestParam (name="size", defaultValue = "2") int size)
 		{
 			//Celebrite c = new Celebrite();
 			//c.setNumCelebrite(id);
 			celebriteService.deleteCelebriteById(id);
-			List<Celebrite>celebs = celebriteService.getAllCelebrites();
+			
+			Page<Celebrite> celebs = celebriteService.getAllCelebritesParPage(page, size);
 			modelMap.addAttribute("celebrites", celebs);		
-			return "ListeCelebrites";
+			modelMap.addAttribute("pages", new int[celebs.getTotalPages()]);	
+			modelMap.addAttribute("currentPage", page);	
+			modelMap.addAttribute("size", size);	
+			return "listeCelebrites";	
 		}
 		
 		@RequestMapping("/modifierCelebrite")
-		public String editerCelebrite(@RequestParam("id") Integer id,ModelMap modelMap)
+		public String editerCelebrite(@RequestParam("id") Integer id,
+				ModelMap modelMap)
 		{
-			Celebrite c= 	celebriteService.getCelebrite(id);
+			Celebrite c= celebriteService.getCelebrite(id);
 			modelMap.addAttribute("celebrite", c);	
 			return "editerCelebrite";	
 		}

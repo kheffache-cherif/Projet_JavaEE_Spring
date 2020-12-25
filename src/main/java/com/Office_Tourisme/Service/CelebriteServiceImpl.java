@@ -3,6 +3,8 @@ package com.Office_Tourisme.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.Office_Tourisme.Repo.CelebriteRepository;
@@ -48,6 +50,24 @@ public class CelebriteServiceImpl implements ICelebriteService {
 	@Override
 	public List<Celebrite> getAllCelebrites() {
 		return celebriteRepository.findAll() ;
+	}
+
+	@Override
+	public Page<Celebrite> getAllCelebritesParPage(int page, int size) {
+		// TODO Auto-generated method stub
+		return celebriteRepository.findAll(PageRequest.of(page, size));
+	}
+
+	@Override
+	public List<Celebrite> findByNom(String nom) {
+	
+		return celebriteRepository.findByNom(nom);
+	}
+
+	@Override
+	public List<Celebrite> findByNomContains(String nom) {
+
+		return celebriteRepository.findByNomContains(nom);
 	}
 
 }

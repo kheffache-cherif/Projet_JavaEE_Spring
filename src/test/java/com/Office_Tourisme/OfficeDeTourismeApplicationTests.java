@@ -2,9 +2,12 @@ package com.Office_Tourisme;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 import com.Office_Tourisme.Repo.CelebriteRepository;
+import com.Office_Tourisme.Service.ICelebriteService;
 //import com.Office_Tourisme.Repository.CelebriteRepository;
 import com.Office_Tourisme.model.Celebrite;
 
@@ -15,6 +18,8 @@ class OfficeDeTourismeApplicationTests {
 	
 	@Autowired   // pour que spring injecte cet objet de type repository
 	private CelebriteRepository celebriteRepository; // declaration objet de type de notre interface 
+	private ICelebriteService celebriteService;
+	
 	@Test
 	public void testCreationCelebrite() {
 		Celebrite cel1 = new  Celebrite(25, "Fabre", "François-Xavier", "Française", "18ème");
@@ -52,5 +57,22 @@ class OfficeDeTourismeApplicationTests {
 		for (Celebrite c:celebs)
 			System.out.println(c);
 	}
+	
+	@Test
+	public void testFindByNomContains()
+	 {
+		Page<Celebrite>  celebs = celebriteService.getAllCelebritesParPage(0,2);
+		System.out.println(celebs.getSize());
+		System.out.println(celebs.getTotalElements());
+		System.out.println(celebs.getTotalPages());
+		
+		celebs.getContent().forEach(c -> {System.out.println(c.toString());
+		                                 });	
+		/*ou bien
+		 for (Celebrite c : celebs)
+		{
+			System.out.println(p);
+		} */
+	 }
 	
 }
