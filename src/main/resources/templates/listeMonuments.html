@@ -20,7 +20,7 @@
         <tr>
             <th>codeM</th><th>NomM </th><th>proprietaire</th><th>typeMonument</th><th>longitude</th><th>latidute</th>
          </tr>  
-           <tr th:each="m:${Monuments}">
+           <tr th:each="m:${Monuments }">
               <td th:text="${m.codeM}"></td>
               <td th:text="${m.nomM}"></td>
               <td th:text="${m.proprietaire}"></td>   
