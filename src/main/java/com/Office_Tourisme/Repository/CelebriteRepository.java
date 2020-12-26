@@ -1,4 +1,4 @@
-package com.Office_Tourisme.Repo;
+package com.Office_Tourisme.Repository;
 
 
 

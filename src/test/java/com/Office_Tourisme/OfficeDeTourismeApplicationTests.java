@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-import com.Office_Tourisme.Repo.CelebriteRepository;
+import com.Office_Tourisme.Repository.CelebriteRepository;
 import com.Office_Tourisme.Service.ICelebriteService;
 //import com.Office_Tourisme.Repository.CelebriteRepository;
 import com.Office_Tourisme.model.Celebrite;

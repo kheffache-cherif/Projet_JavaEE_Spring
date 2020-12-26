@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.Office_Tourisme.Repo.CelebriteRepository;
+import com.Office_Tourisme.Repository.CelebriteRepository;
 import com.Office_Tourisme.model.Celebrite;
 
 @Service // Pour dire à Spring que cette class est un service et si on a besoin des methodes ci_dessou
