@@ -32,6 +32,16 @@ public class Monument implements Serializable{
 
 	public Monument() {
 	}
+	public Monument(String codeM, String nomM, String proprietaire, String typeMonument, double longitude,
+			double latitude) {
+		super();
+		this.codeM = codeM;
+		this.nomM = nomM;
+		this.proprietaire = proprietaire;
+		this.typeMonument = typeMonument;
+		this.longitude = longitude;
+		this.latitude = latitude;
+	}  
 
 	
 	public String getCodeM() {
@@ -101,7 +111,12 @@ public class Monument implements Serializable{
 	}  
 	public void setCelebrites(Set<Celebrite> celebrites){  
 	    this.celebrites = celebrites;  
-	}  
+	}
+
+
+	
+	
+	
 	
 	
 }

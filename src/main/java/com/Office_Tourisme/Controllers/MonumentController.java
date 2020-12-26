@@ -23,7 +23,7 @@ public class MonumentController {
 	IMonumentService iMonumentService;
 	
 	
-	@RequestMapping("/showCreate")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
+	@RequestMapping("/showCreateM")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
 	public String showCreate()
 	{
 		return "CreateMonument";// le nom de la vue creer
@@ -36,7 +36,7 @@ public class MonumentController {
 		
       
 		Monument saveMonument = iMonumentService.saveMonument(monument);  //la methode save du service avec comme paramettre l'objet celeb
-		 String msg ="clebrite enregistré avec Id "+saveMonument.getCodeM();
+		 String msg ="monument enregistré avec codeM "+saveMonument.getCodeM();
 		 modelMap.addAttribute("msg", msg); //je passe le message à modelMap declarer en haut 
 		return "CreateMonument";
 		

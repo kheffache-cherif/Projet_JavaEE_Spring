@@ -19,7 +19,7 @@ src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<form action="saveMonument" method="post">
 		<div class="form-group">
 		<label class="control-label">codeM :</label>
-		<input type="number" name="codeM" class="form-control"/>
+		<input type="text" name="codeM" class="form-control"/>
 		</div>
 		
 		<div class="form-group">
@@ -52,7 +52,7 @@ src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 ${msg}
 <br/>
 <br/>
-<a href="ListeCelebrites">Liste Monuments</a>
+<a href="ListeMonuments">Liste Monuments</a>
 </div>
 </body>
 </html>
