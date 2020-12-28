@@ -60,14 +60,15 @@ public class DepartemntController {
 		
 		
 		@RequestMapping("/supprimerDepartement")
-		public String supprimerDepartement(@RequestParam("id") Integer id,
+		public String supprimerDepartement(@RequestParam("id") String id,
 				ModelMap modelMap,
 				@RequestParam (name="page",defaultValue = "0") int page,
 				@RequestParam (name="size", defaultValue = "2") int size)
 		{
 			//Departement c = new Departement();
 			//c.setNumDepartement(id);
-			iDepartementService.deleteDepartementById(id);
+			
+			 iDepartementService.deleteDepartementById(id);
 			
 			Page<Departement> depts = iDepartementService.getAllDepartementsParPage(page, size);
 			modelMap.addAttribute("departements", depts);		
@@ -78,10 +79,11 @@ public class DepartemntController {
 		}
 		
 		@RequestMapping("/modifierDepartement")
-		public String editerDepartement(@RequestParam("id") Integer id,
+		public String editerDepartement(@RequestParam("id") String id,
 				ModelMap modelMap)
 		{
-			Departement d= iDepartementService.getDepartement(id);
+		
+			Departement d = iDepartementService.getDepartement(id);
 			modelMap.addAttribute("departement", d);	
 			modelMap.addAttribute("mode", "edit");	
 			return "formDepartement";	

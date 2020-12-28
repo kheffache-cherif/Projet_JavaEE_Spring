@@ -19,7 +19,7 @@
   <ul class="navbar-nav">
     
 
-    <!-- Dropdown -->
+    <!-- Dropdown 
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
         Celebrités
@@ -30,14 +30,35 @@
        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
        Lieux
       </a>
+       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Departemnts
+      </a>
       <div class="dropdown-menu">
         <a class="dropdown-item"  th:href="@{showCreate}">Ajouter</a>
         <a class="dropdown-item"  th:href="@{ListeCelebrites}">Lister</a>
          <!--<a class="dropdown-item"  th:href="@{ListeMonuments}">Lister</a>  -->
-         <!-- <a class="dropdown-item"  th:href="@{ListeLieux}">Lister</a> -->
+         <!-- <a class="dropdown-item"  th:href="@{ListeLieux}">Lister</a> 
       </div>
     </li>
-    </ul>
+    </ul> -->
+    
+			
+			<div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Celebrite</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item"  th:href="@{showCreate}">Ajouter</a>
+        <a class="dropdown-item"  th:href="@{ListeCelebrites}">Lister</a>
+        </div>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Monument</button>
+        <div class="dropdown-menu">
+           <a class="dropdown-item"  th:href="@{showCreateM}">Ajouter</a>
+           <a class="dropdown-item"  th:href="@{ListeMonuments}">Lister</a>
+        </div>
+    </div>
+			
+			    
     
     <ul class="navbar-nav ml-auto" > 
      <li class="nav-item dropdown">

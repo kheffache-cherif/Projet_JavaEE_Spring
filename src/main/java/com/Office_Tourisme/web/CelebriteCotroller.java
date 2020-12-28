@@ -22,8 +22,10 @@ public class CelebriteCotroller {
 	ICelebriteService celebriteService;
 	
 	@RequestMapping("/showCreate")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
-	public String showCreate()
+	public String showCreate(ModelMap modelMap) throws ParseException
 	{
+		
+		modelMap.addAttribute("mode", "new");
 		return "formCelebrite";// le nom de la vue creer
 	}
 	@RequestMapping("/saveCelebrite")  // action save celebrite
