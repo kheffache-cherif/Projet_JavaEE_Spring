@@ -28,27 +28,36 @@
 							<label class="control-label">Num_Celebrité:</label> 
 								
 								<input type="number" name="numCelebrite" class="form-control" 
-								th:value="numCelebrite"/>
+								th:value="${celebrite.numCelebrite}"/>
 						</div>
 						<div class="form-group">
-							<label class="control-label">Nom :</label> <input
-								type="text" name="nom" class="form-control"
+							<label class="control-label">Nom :</label> 
+							<input type="text" name="nom" class="form-control" th:if="${mode=='new'}"
 								th:value= "nom" />
+							<input type="text" name="nom" class="form-control" th:if="${mode=='edit'}"
+								th:value="${celebrite.nom}" />
 						</div>
 						<div class="form-group">
-							<label class="control-label">Prénom:</label> <input
-								type="text" name="prenom" class="form-control" 
+							<label class="control-label">Prénom:</label> 
+							<input type="text" name="prenom" class="form-control" th:if="${mode=='new'}"
 								th:value="prenom"/>
+							<input type="text" name="prenom" class="form-control" th:if="${mode=='edit'}"
+								th:value="${celebrite.prenom}"/>
 						</div>
 						<div class="form-group">
-							<label class="control-label">Nationalité :</label> <input
-								type="text" name="nationalite" class="form-control" 
+							<label class="control-label">Nationalité :</label> 
+							<input type="text" name="nationalite" class="form-control" th:if="${mode=='new'}"
 								th:value="nationalite"/>
+							<input type="text" name="nationalite" class="form-control"  th:if="${mode=='edit'}"
+								th:value="${celebrite.nationalite}"/>
+								
 						</div>
 						<div class="form-group">
-							<label class="control-label">Epoque:</label> <input
-								type="text" name="epoque" class="form-control"
+							<label class="control-label">Epoque:</label> 
+							<input type="text" name="epoque" class="form-control" th:if="${mode=='new'}"
 								th:value="epoque" />
+							<input type="text" name="epoque" class="form-control" th:if="${mode=='edit'}"
+								th:value="${celebrite.epoque}"/>
 						</div>
 						<div>
 							<button type="submit" class="btn btn-primary">Valider</button>

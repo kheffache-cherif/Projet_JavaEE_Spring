@@ -1,7 +1,4 @@
-
 package com.Office_Tourisme.web;
-
-
 
 import java.text.ParseException;
 import java.util.List;
@@ -25,9 +22,10 @@ public class MonumentController {
 	
 	
 	@RequestMapping("/showCreateM")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
-	public String showCreate()
+	public String showCreateM(ModelMap modelMap) throws ParseException
 	{
-		return "CreateMonument";// le nom de la vue creer
+		modelMap.addAttribute("mode", "new");
+		return "formMonument";// le nom de la vue creer
 	}
 	@RequestMapping("/saveMonument")  // action save monument
 	public String saveMonument(@ModelAttribute("monument") Monument monument, // lors de la creation de la vue du il recupere l'objet 
@@ -39,7 +37,8 @@ public class MonumentController {
 		Monument saveMonument = iMonumentService.saveMonument(monument);  //la methode save du service avec comme paramettre l'objet celeb
 		 String msg ="monument enregistré avec codeM "+saveMonument.getCodeM();
 		 modelMap.addAttribute("msg", msg); //je passe le message à modelMap declarer en haut 
-		return "CreateMonument";
+		 modelMap.addAttribute("mode", "edit");
+		 return "formMonument";
 		
 	}
 		
@@ -84,7 +83,8 @@ public class MonumentController {
 		{
 			Monument m= iMonumentService.getMonument(id);
 			modelMap.addAttribute("monument", m);	
-			return "editerMonument";	
+			modelMap.addAttribute("mode", "edit");
+			return "formMonument";	
 		}
 
 		@RequestMapping("/updateMonument")
