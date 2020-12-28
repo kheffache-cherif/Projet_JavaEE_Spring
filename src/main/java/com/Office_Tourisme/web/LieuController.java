@@ -1,4 +1,4 @@
-package com.Office_Tourisme.Controllers;
+package com.Office_Tourisme.web;
 
 import java.text.ParseException;
 import java.util.List;

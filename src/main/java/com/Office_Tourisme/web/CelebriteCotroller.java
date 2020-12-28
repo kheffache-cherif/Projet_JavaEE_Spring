@@ -1,4 +1,4 @@
-package com.Office_Tourisme.Controllers;
+package com.Office_Tourisme.web;
 
 import java.text.ParseException;
 import java.util.List;
@@ -24,7 +24,7 @@ public class CelebriteCotroller {
 	@RequestMapping("/showCreate")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
 	public String showCreate()
 	{
-		return "CreateCelebrite";// le nom de la vue creer
+		return "formCelebrite";// le nom de la vue creer
 	}
 	@RequestMapping("/saveCelebrite")  // action save celebrite
 	public String saveCelebrite(@ModelAttribute("celebrite") Celebrite celebrite, // lors de la creation de la vue du il recupere l'objet 
@@ -36,7 +36,8 @@ public class CelebriteCotroller {
 		Celebrite saveCelebrite = celebriteService.saveCelebrite(celebrite);  //la methode save du service avec comme paramettre l'objet celeb
 		 String msg ="clebrite enregistré avec Id "+saveCelebrite.getNumCelebrite();
 		 modelMap.addAttribute("msg", msg); //je passe le message à modelMap declarer en haut 
-		return "CreateCelebrite";
+			modelMap.addAttribute("mode", "new");
+		 return "formCelebrite";
 		
 	}
 		
@@ -81,7 +82,8 @@ public class CelebriteCotroller {
 		{
 			Celebrite c= celebriteService.getCelebrite(id);
 			modelMap.addAttribute("celebrite", c);	
-			return "editerCelebrite";	
+			modelMap.addAttribute("mode", "edit");	
+			return "formCelebrite";	
 		}
 
 		@RequestMapping("/updateCelebrite")

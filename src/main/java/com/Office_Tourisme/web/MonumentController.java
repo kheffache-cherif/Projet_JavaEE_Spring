@@ -1,5 +1,5 @@
 
-package com.Office_Tourisme.Controllers;
+package com.Office_Tourisme.web;
 
 
 
