@@ -18,10 +18,11 @@
   <div class="card-body">    
       <table class="table table-striped">
         <tr>
-            <th>codeInsee</th><th>nomCom </th><th>longitude</th><th>latidute</th>
+            <th>codeInsee</th><th>depL</th><th>nomCom </th><th>longitude</th><th>latidute</th>
          </tr>  
            <tr th:each="l:${lieux.content }">
               <td th:text="${l.codeInsee}"></td>
+               <td th:text="${l.depL}"></td>
               <td th:text="${l.nomCom}"></td>
               <td th:text="${l.longitude}"></td>   
               <td th:text="${l.latitude}"></td> 

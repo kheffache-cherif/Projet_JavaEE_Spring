@@ -19,13 +19,14 @@
   <div class="card-body">    
       <table class="table table-striped">
         <tr>
-            <th>codeM</th><th>NomM </th><th>proprietaire</th><th>typeMonument</th><th>longitude</th><th>latidute</th>
+            <th>codeM</th><th>NomM </th><th>proprietaire</th><th>typeMonument</th><th>longitude</th><th>latidute</th><th>codeLieu</th>
          </tr>  
            <tr th:each="m:${monuments.content}">
               <td th:text="${m.codeM}"></td>
               <td th:text="${m.nomM}"></td>
               <td th:text="${m.proprietaire}"></td>   
               <td th:text="${m.typeMonument}"></td>
+               <td th:text="${m.codeLieu.codeInsee}"></td>
               <td th:text="${m.longitude}"></td>   
               <td th:text="${m.latitude}"></td> 
               <td><a class="btn btn-success" th:href="@{modifierMonument(id=${c.codeM})}">Editer</a></td>

@@ -25,17 +25,24 @@
 								th:value="codeM"/>
 						</div>
 						<div class="form-group" style= "visibility:hidden" th:if="${mode=='edit'}">
-							<label class="control-label">Num_Celebrité:</label> 
+							<label class="control-label">Code_M</label> 
 								
 								<input type="text" name="codeM" class="form-control" 
 								th:value="${monument.codeM}"/>
 						</div>
 						<div class="form-group">
-							<label class="control-label">NomM :</label> 
+							<label class="control-label">NomM :</label>
 							<input type="text" name="nomM" class="form-control" th:if="${mode=='new'}"
 								th:value= "nomM" />
 							<input type="text" name="nomM" class="form-control" th:if="${mode=='edit'}"
 								th:value="${monument.nomM}" />
+						</div>
+							<div class="form-group">
+							<label class="control-label">MonuCodeLieu :</label>
+							<input type="text" name="codeLieu.codeInsee" class="form-control" th:if="${mode=='new'}"
+								th:value= "codeLieu.codeInsee" />
+							<input type="text" name="codeLieu.codeInsee" class="form-control" th:if="${mode=='edit'}"
+								th:value="${monument.codeLieu.codeInsee}" />
 						</div>
 						<div class="form-group">
 							<label class="control-label">Proprietaire:</label> 

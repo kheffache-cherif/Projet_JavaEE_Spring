@@ -22,9 +22,10 @@ public class DepartemntController {
 	@Autowired  // injecter l'instanciation de IDepartementService et avoir l'accer à toute les methodes 
 	IDepartementService iDepartementService;
 	
-	@RequestMapping("/showCreateDep")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
-	public String showCreate()
+	@RequestMapping("/showCreateD")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
+	public String showCreate(ModelMap modelMap) throws ParseException
 	{
+		modelMap.addAttribute("mode", "new");
 		return "formDepartement";// le nom de la vue creer
 	}
 	@RequestMapping("/saveDepartement")  // action save Departement
