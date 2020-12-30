@@ -15,14 +15,14 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))// email est l'unique instance
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "first_name")
+	@Column(name = "first_name")  // juste pour defenir le nom de la colone 
 	private String firstName;
 	
 	@Column(name = "last_name")
@@ -34,9 +34,9 @@ public class User {
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
-			name = "users_roles",
+			name = "users_roles",  // creation d'une  3 eme table avec la relation ManytoMany 
 			joinColumns = @JoinColumn(
-		            name = "user_id", referencedColumnName = "id"),
+		            name = "user_id", referencedColumnName = "id"), //fk
 			inverseJoinColumns = @JoinColumn(
 				            name = "role_id", referencedColumnName = "id"))
 	

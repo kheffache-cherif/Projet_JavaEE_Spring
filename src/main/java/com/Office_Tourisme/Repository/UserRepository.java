@@ -7,6 +7,6 @@ import com.Office_Tourisme.model.User;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{  //JpA pour acceder à CRUD database
 	User findByEmail(String email);
 }

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="template">
-<link rel="stylesheet" type="text/css"
-	href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<html>
 <head>
+<meta charset="ISO-8859-1">
+<title>Application d'inscription et de connexion</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	
+</head>
 <body>
 
 	<!-- create navigation bar ( header) -->
@@ -14,12 +19,12 @@
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
+				<span class="sr-only">Basculer la navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" th:href="@{/}">Registration and
-					Login Module</a>
+				<a class="navbar-brand" href="#" th:href="@{/}">Inscription et 
+					Module de connexion</a>
 			</div>
 		</div>
 	</nav>
@@ -30,18 +35,17 @@
 		<div class = "row">
 			<div class = "col-md-6 col-md-offset-3">
 				
-				<h1> User Login Page </h1>
+				<h1> Page de connexion de l'utilisateur</h1>
 				<form th:action="@{/login}" method="post">
 					
 					<!-- error message -->
 					<div th:if="${param.error}">
-						<div class="alert alert-danger">Invalid username or
-							password.</div>
+						<div class="alert alert-danger">Nom d'utilisateur invalide ou mot de passe.</div>
 					</div>
 				
 					<!-- logout message -->
 					<div th:if="${param.logout}">
-						<div class="alert alert-info">You have been logged out.</div>
+						<div class="alert alert-info">Vous avez été déconnecté.</div>
 					</div>
 					
 					<div class = "form-group">
@@ -66,8 +70,7 @@
 					</div>
 				</form>
 				<div class="form-group">
-						<span>New user? <a href="/" th:href="@{/registration}">Register
-								here</a></span>
+						<span>Nouveau Utilisateur? <a href="/" th:href="@{/registration}">Inscrivez Vous Ici</a></span>
 				</div>
 			</div>
 		</div>
