@@ -1,6 +1,8 @@
 package com.Office_Tourisme.model;
 import java.util.Collection;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +17,8 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))// email est l'unique instance
+@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email") )// email est l'unique instance
+@Access(AccessType.FIELD)
 public class User {
 	
 	@Id
@@ -42,18 +45,16 @@ public class User {
 	
 	private Collection<Role> roles;
 	
-	public User() {
-		
-	}
-	
-	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.roles = roles;
-	}
+	/*
+	 * public User() {
+	 * 
+	 * }
+	 * 
+	 * public User(String firstName, String lastName, String email, String password,
+	 * Collection<Role> roles) { super(); this.firstName = firstName; this.lastName
+	 * = lastName; this.email = email; this.password = password; this.roles = roles;
+	 * }
+	 */
 	public Long getId() {
 		return id;
 	}
