@@ -8,6 +8,7 @@ import org.hibernate.annotations.Fetch;
 
 
 @Entity
+@Table(name = "lieu")
 public class Lieu implements Serializable{
 	
 	private static final long serialVersionUID = -5932571284160960204L;
@@ -18,19 +19,26 @@ public class Lieu implements Serializable{
 	private double longitude;
 	private double latitude;
 	
-	@ManyToOne(cascade = CascadeType.ALL, targetEntity = Departement.class)
-	@JoinColumn(name="depL")
-	private Departement depL;
+	@ManyToOne
+	@JoinColumn(name ="dep", referencedColumnName="dep")
+	private Departement dep;
 	
-	@OneToMany(targetEntity = Monument.class, mappedBy = "codeLieu", fetch=FetchType.EAGER)
-	@Fetch (FetchMode.SELECT)
-	private List<Monument> monuments = new ArrayList<Monument>();
-	
+	@OneToMany(mappedBy = "codeLieu", fetch = FetchType.LAZY)
+	private List<Monument> monuments= new ArrayList<Monument>();	
 	
 	public Lieu() {
 	}
+	
+	
+	
 
 	
+	public void setDep(Departement dep) {
+		this.dep = dep;
+	}
+
+
+
 	public String getCodeInsee() {
 		return codeInsee;
 	}
@@ -45,12 +53,12 @@ public class Lieu implements Serializable{
 		this.nomCom = nomCom;
 	}
 	
-	public Departement getDepL() {
-		return depL;
+	public Departement getDep() {
+		return dep;
 	}
 	
-	public void setDepL(Departement depL) {
-		this.depL = depL;
+	public void setDepL(Departement dep) {
+		this.dep = dep;
 	}
 	
 	public List<Monument> getMonuments(){

@@ -24,13 +24,16 @@ public class LieuController {
 	
 	
 	@RequestMapping("/showCreateL")  //@..lorsque l'url demander est celui la don c j'affiche la jsp
+	
 	public String showCreate(ModelMap modelMap) throws ParseException
+		
 	{
+		modelMap.addAttribute("newLieu",new Lieu());
 		modelMap.addAttribute("mode", "new");
 		return "formLieu";// le nom de la vue creer
 	}
 	@RequestMapping("/saveLieu")  // action save Lieu
-	public String saveLieu(@ModelAttribute("lieu") Lieu lieu, // lors de la creation de la vue du il recupere l'objet 
+	public String saveLieu(@ModelAttribute("newLieu") Lieu lieu, // lors de la creation de la vue du il recupere l'objet 
 							
 							  ModelMap modelMap) throws ParseException
 	{
@@ -84,7 +87,7 @@ public class LieuController {
 				ModelMap modelMap)
 		{
 			Lieu l= iLieuService.getLieu(id);
-			modelMap.addAttribute("lieux", l);
+			modelMap.addAttribute("lieu", l);
 			modelMap.addAttribute("mode", "edit");
 			return "formLieu";	
 		}

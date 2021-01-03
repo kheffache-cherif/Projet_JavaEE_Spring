@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.*;
-
 @Entity
+@Table(name = "Celebrite")
 public class Celebrite implements Serializable{
 	
 	private static final long serialVersionUID = 8437833828020336290L;

@@ -19,26 +19,26 @@
 							
 					
 						<div class="form-group" style= "visibility:visible" th:if="${mode=='new'}">
-							<label class="control-label">Num_Celebrité:</label> 
+							<label class="control-label">Numero celebrite:</label> 
 								
 								<input type="number" name="numCelebrite" class="form-control" 
 								th:value="numCelebrite"/>
 						</div>
 						<div class="form-group" style= "visibility:hidden" th:if="${mode=='edit'}">
-							<label class="control-label">Num_Celebrité:</label> 
+							<label class="control-label">Numero celebrite:</label> 
 								
 								<input type="number" name="numCelebrite" class="form-control" 
 								th:value="${celebrite.numCelebrite}"/>
 						</div>
 						<div class="form-group">
-							<label class="control-label">Nom :</label> 
+							<label class="control-label">Nom celebrité :</label> 
 							<input type="text" name="nom" class="form-control" th:if="${mode=='new'}"
 								th:value= "nom" />
 							<input type="text" name="nom" class="form-control" th:if="${mode=='edit'}"
 								th:value="${celebrite.nom}" />
 						</div>
 						<div class="form-group">
-							<label class="control-label">Prénom:</label> 
+							<label class="control-label">Prenom celebrité:</label> 
 							<input type="text" name="prenom" class="form-control" th:if="${mode=='new'}"
 								th:value="prenom"/>
 							<input type="text" name="prenom" class="form-control" th:if="${mode=='edit'}"

@@ -18,11 +18,15 @@
   <div class="card-body">    
       <table class="table table-striped">
         <tr>
-            <th>codeInsee</th><th>depL</th><th>nomCom </th><th>longitude</th><th>latidute</th>
+            <th>codeInsee</th>
+            <th>Departement</th>
+            <th>Commune </th>
+            <th>longitude</th>
+            <th>latidute</th>
          </tr>  
            <tr th:each="l:${lieux.content }">
               <td th:text="${l.codeInsee}"></td>
-               <td th:text="${l.depL}"></td>
+              <td th:text="${l.dep.dep}"></td>
               <td th:text="${l.nomCom}"></td>
               <td th:text="${l.longitude}"></td>   
               <td th:text="${l.latitude}"></td> 
@@ -40,7 +44,7 @@
               th:text="${status.index }"></a>
          </li>
       </ul>
-      
+      <a th:href="@{/}"><button>Retour</button></a> 
   </div>
 </div>
 </div>

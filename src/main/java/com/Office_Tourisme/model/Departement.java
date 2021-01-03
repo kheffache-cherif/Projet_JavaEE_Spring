@@ -2,6 +2,7 @@ package com.Office_Tourisme.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.*;
@@ -20,12 +21,22 @@ public class Departement implements Serializable{
 	private String nomDep;
 	private String reg;
 	
-	@OneToMany(targetEntity = Lieu.class, mappedBy = "depL", fetch=FetchType.EAGER)
-	private List<Lieu> lieux = new ArrayList<Lieu>();
+	@OneToMany(mappedBy ="dep", fetch=FetchType.LAZY)
+	private Collection<Lieu> lieu;
 	
 	
 	
-	public Departement() {
+	
+	public Departement() {}
+
+
+
+	public Departement(String dep, String chefLieu, String nomDep, String reg) {
+		super();
+		this.dep = dep;
+		this.chefLieu = chefLieu;
+		this.nomDep = nomDep;
+		this.reg = reg;
 	}
 
 
@@ -35,9 +46,11 @@ public class Departement implements Serializable{
 	}
 
 
+
 	public void setDep(String dep) {
 		this.dep = dep;
 	}
+
 
 
 	public String getChefLieu() {
@@ -45,9 +58,11 @@ public class Departement implements Serializable{
 	}
 
 
+
 	public void setChefLieu(String chefLieu) {
 		this.chefLieu = chefLieu;
 	}
+
 
 
 	public String getNomDep() {
@@ -55,9 +70,11 @@ public class Departement implements Serializable{
 	}
 
 
+
 	public void setNomDep(String nomDep) {
 		this.nomDep = nomDep;
 	}
+
 
 
 	public String getReg() {
@@ -65,38 +82,19 @@ public class Departement implements Serializable{
 	}
 
 
+
 	public void setReg(String reg) {
 		this.reg = reg;
 	}
-
-
-	public List<Lieu> getLieux() {
-		return lieux;
-	}
-
-
-	public void setLieux(List<Lieu> lieux) {
-		this.lieux = lieux;
-	}
-
-
-
+	
 	@Override
 	public String toString() {
-		return "Departement [dep=" + dep + ", chefLieu=" + chefLieu + ", nomDep=" + nomDep + ", reg=" + reg + "]";
+		return ""+dep;
 	}
-
-
-	public Lieu addLieu(Lieu lieu) {
-		lieux.add(lieu);
-		lieu.setDepL(this);
-        return lieu;
-    }
+		
 	
-	public Lieu removeLieu(Lieu lieu) {
-		lieux.remove(lieu);
-        return lieu;
-    }
+	
+	
 	
 
 }
