@@ -63,6 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {// exte
 		.and()
 		.formLogin()
 		.loginPage("/login")  // parametre par defaut
+		.defaultSuccessUrl("/ListeCelebrites", true)
 		.permitAll()
 		.and()
 		.logout()
@@ -71,6 +72,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {// exte
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))// lors du click sue connexion
 		.logoutSuccessUrl("/login?logout")  // redirection
 		.permitAll();
+		
 	}
-
+	
 }
