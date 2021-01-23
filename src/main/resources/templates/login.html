@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Application d'inscription et de connexion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="icon" href="http://www.invivoo.com/wp-content/uploads/template-agenda-invivoo-workshop-creez-premiere-application-spring-boot.jpg"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<link th:href="@{/css/style.css}" href="/css/style.css"  rel="stylesheet" type="text/css"  />
+    <title>Mon premier Projet JAVA EE</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-	
 </head>
-<body>
+<!-- Fixed navbar -->
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
 
-	<!-- create navigation bar ( header) -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 					aria-controls="navbar">
@@ -31,11 +31,20 @@
 	
 	<br>
 	<br>
-	<div class = "container">
+	
+	<div class="container" id="slider">
+
+ <figure>
+   <img src="https://monumentsmorts.univ-lille.fr/monmorts/upload/monument/53401-53600/53472/vuedeface20170607_135802_5a9c02ad96cd3.jpg" alt>
+   <img src="https://mapio.net/images-p/23529097.jpg" alt>
+   <img src="https://img-4.linternaute.com/H5cTUpd0VvCoR0t6-TyV6yN0F3M=/1240x/smart/d4d037851acb4691b8cbc01b97b543b5/ccmcms-linternaute/10683062.jpg" alt>
+   <img src="https://img.aws.la-croix.com/2017/03/28/1200835422/Vue-Tour-Eiffel-octobre-2015_0_729_485.jpg" alt>
+   <img src="https://mapio.net/images-p/23529097.jpg" alt>
+ </figure>
 		<div class = "row">
 			<div class = "col-md-6 col-md-offset-3">
 				
-				<h1> Page de connexion de l'utilisateur</h1>
+				<h1> Page de connexion de l'utilisateur </h1>
 				<form th:action="@{/login}" method="post">
 					
 					<!-- error message -->
@@ -45,7 +54,7 @@
 				
 					<!-- logout message -->
 					<div th:if="${param.logout}">
-						<div class="alert alert-info">Vous avez été déconnecté.</div>
+						<div class="alert alert-info">Vous avez Ã©tÃ© dÃ©connectÃ©.</div>
 					</div>
 					
 					<div class = "form-group">
@@ -76,4 +85,9 @@
 		</div>
 	</div>
 </body>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Cherif Kheffache</p>
+    </div>
+</footer>
 </html>
