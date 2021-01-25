@@ -8,7 +8,7 @@
   
 <head>
 <meta charset="utf-8">
-<title>Gestion des Celebrites</title>
+<title>Office_De_Tourisme</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -80,8 +80,7 @@
       [ <span sec:authentication="principal.username"> User</span>]
       </a>
       <div class="dropdown-menu">
-       	<a class="navbar-brand" href="#" th:href="@{/}">Registration and
-					Login Module</a>
+       	<a class="navbar-brand" href="#" th:href="@{/}">Inscription et Connexion</a>
       <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
       <!--   <a class="dropdown-item" href="#">Profile</a> -->
       </div>

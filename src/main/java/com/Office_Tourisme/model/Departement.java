@@ -17,7 +17,9 @@ public class Departement implements Serializable{
 	
 	@Id
 	private String dep;
-	private String chefLieu;
+	
+	@OneToOne
+	private Lieu chefLieu;
 	private String nomDep;
 	private String reg;
 	
@@ -26,12 +28,12 @@ public class Departement implements Serializable{
 	
 	
 	
-	
+
 	public Departement() {}
 
 
 
-	public Departement(String dep, String chefLieu, String nomDep, String reg) {
+	public Departement(String dep, Lieu chefLieu, String nomDep, String reg) {
 		super();
 		this.dep = dep;
 		this.chefLieu = chefLieu;
@@ -53,13 +55,13 @@ public class Departement implements Serializable{
 
 
 
-	public String getChefLieu() {
+	public Lieu getChefLieu() {
 		return chefLieu;
 	}
 
 
 
-	public void setChefLieu(String chefLieu) {
+	public void setChefLieu(Lieu chefLieu) {
 		this.chefLieu = chefLieu;
 	}
 

@@ -47,14 +47,14 @@ class OfficeDeTourismeApplicationTests {
 		celebriteRepository.save(c);
 		System.out.println(c);
 	}
-	/*
+	
 	@Test
 	public void testDeleteCelebrite() {
 		celebriteRepository.deleteById(25);
 		
 	}
 	
-	*/
+
 
 	@Test
 	public void testFindAllCelebrite() {
@@ -75,7 +75,9 @@ class OfficeDeTourismeApplicationTests {
 		System.out.println(celebs.getTotalPages());
 		
 		celebs.getContent().forEach(c -> {System.out.println(c.toString());
-		                                 });	
+		                               
+		                         });	
+		
 		ou bien
 		 for (Celebrite c : celebs)
 		{
@@ -84,12 +86,10 @@ class OfficeDeTourismeApplicationTests {
 	/*------------------------------------------Monument---------------------------------------*/
 
 				
-	
-	@Test
-	public void testcreationMonument(){
-		Monument mon2 =  new Monument("sdf", "hgfs", "dfgh", "dfgh", 456.8, 4562);
-		monumentRepository.save(mon2);
-	}
+	/*
+	 * @Test public void testcreationMonument(){ Monument mon2 = new Monument("sdf",
+	 * "hgfs", "dfgh", "dfgh", 456.8, 4562); monumentRepository.save(mon2); }
+	 */
 	
 	
 	@Test

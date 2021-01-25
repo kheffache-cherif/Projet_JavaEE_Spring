@@ -16,8 +16,8 @@ public class Lieu implements Serializable{
 	@Id
 	private String codeInsee;	
 	private String nomCom;
-	private double longitude;
-	private double latitude;
+	private float longitude;
+	private float latitude;
 	
 	@ManyToOne
 	@JoinColumn(name ="dep", referencedColumnName="dep")
@@ -69,17 +69,17 @@ public class Lieu implements Serializable{
             this.monuments = monuments;
     }
 	
-	public double getLatitude() {
+	public float getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(double latitude) {
+	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
 	
-	public double getLongitude() {
+	public float getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(double longitude) {
+	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 	
@@ -93,7 +93,7 @@ public class Lieu implements Serializable{
 
 	public Monument addMonument(Monument monument) {
     	monuments.add(monument);
-    	monument.setLieu(this);
+    	monument.setCodeLieu(this);
         return monument;
     }
 	

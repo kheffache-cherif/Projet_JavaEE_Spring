@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,6 +62,7 @@ public class CelebriteCotroller {
 		
 		
 		@RequestMapping("/supprimerCelebrite")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String supprimerCelebrite(@RequestParam("id") Integer id,
 				ModelMap modelMap,
 				@RequestParam (name="page",defaultValue = "0") int page,
@@ -79,6 +81,7 @@ public class CelebriteCotroller {
 		}
 		
 		@RequestMapping("/modifierCelebrite")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String editerCelebrite(@RequestParam("id") Integer id,
 				ModelMap modelMap)
 		{
@@ -89,6 +92,7 @@ public class CelebriteCotroller {
 		}
 
 		@RequestMapping("/updateCelebrite")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String updateCelebrite(@ModelAttribute("celebrite") Celebrite celebrite,
 				                    ModelMap modelMap) {
 			 celebriteService.updateCelebrite(celebrite);

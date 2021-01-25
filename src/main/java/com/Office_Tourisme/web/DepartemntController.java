@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -61,6 +62,7 @@ public class DepartemntController {
 		
 		
 		@RequestMapping("/supprimerDepartement")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String supprimerDepartement(@RequestParam("id") String id,
 				ModelMap modelMap,
 				@RequestParam (name="page",defaultValue = "0") int page,
@@ -80,8 +82,9 @@ public class DepartemntController {
 		}
 		
 		@RequestMapping("/modifierDepartement")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String editerDepartement(@RequestParam("id") String id,
-				ModelMap modelMap)
+				ModelMap modelMap)     // affichage coller les shamps de modification
 		{
 		
 			Departement d = iDepartementService.getDepartement(id);
@@ -89,10 +92,11 @@ public class DepartemntController {
 			modelMap.addAttribute("mode", "edit");	
 			return "formDepartement";	
 		}
-
+		
 		@RequestMapping("/updateDepartement")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String updateDepartement(@ModelAttribute("departement") Departement departement,
-				                    ModelMap modelMap) {
+				                    ModelMap modelMap) {  // modification
 			 iDepartementService.updateDepartement(departement);
 			 List<Departement>depts = iDepartementService.getAllDepartements();
 				modelMap.addAttribute("departements", depts);		

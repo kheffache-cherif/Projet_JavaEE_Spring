@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -65,6 +66,7 @@ public class LieuController {
 		
 		
 		@RequestMapping("/supprimerLieu")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String supprimerLieu(@RequestParam("id") String id,
 				ModelMap modelMap,
 				@RequestParam (name="page",defaultValue = "0") int page,
@@ -83,6 +85,7 @@ public class LieuController {
 		}
 		
 		@RequestMapping("/modifierLieu")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String editerLieu(@RequestParam("id") String id,
 				ModelMap modelMap)
 		{
@@ -93,6 +96,7 @@ public class LieuController {
 		}
 
 		@RequestMapping("/updateLieu")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String updateLieu(@ModelAttribute("lieu") Lieu lieu,
 				                    ModelMap modelMap) {
 			 iLieuService.updateLieu(lieu);

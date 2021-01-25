@@ -54,7 +54,12 @@ public class User {
 	 * Collection<Role> roles) { super(); this.firstName = firstName; this.lastName
 	 * = lastName; this.email = email; this.password = password; this.roles = roles;
 	 * }
+	 * 
 	 */
+	
+	
+	
+	
 	public Long getId() {
 		return id;
 	}

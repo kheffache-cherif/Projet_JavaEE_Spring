@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,7 +46,7 @@ public class MonumentController {
 		@RequestMapping("/ListeMonuments")
 		public String listeMonuments(ModelMap modelMap,
 		@RequestParam (name="page",defaultValue = "0") int page,
-		@RequestParam (name="size", defaultValue = "2") int size)
+		@RequestParam (name="size", defaultValue = "4") int size)
 		{
 			//List<Monument>mnmts = monumentService.getAllMonuments();
 			//modelMap.addAttribute("monuments", mnmts);		
@@ -60,10 +61,11 @@ public class MonumentController {
 		
 		
 		@RequestMapping("/supprimerMonument")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String supprimerMonument(@RequestParam("id") String id,
 				ModelMap modelMap,
 				@RequestParam (name="page",defaultValue = "0") int page,
-				@RequestParam (name="size", defaultValue = "2") int size)
+				@RequestParam (name="size", defaultValue = "4") int size)
 		{
 			//Monument c = new Monument();
 			//c.setNumMonument(id);
@@ -78,6 +80,7 @@ public class MonumentController {
 		}
 		
 		@RequestMapping("/modifierMonument")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String editerMonument(@RequestParam("id") String id,
 				ModelMap modelMap)
 		{
@@ -88,6 +91,7 @@ public class MonumentController {
 		}
 
 		@RequestMapping("/updateMonument")
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		public String updateMonument(@ModelAttribute("monument") Monument monument,
 				                    ModelMap modelMap) {
 			 iMonumentService.updateMonument(monument);

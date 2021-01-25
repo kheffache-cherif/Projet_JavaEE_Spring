@@ -22,7 +22,8 @@ import com.Office_Tourisme.web.dto.UserRegistrationDto;
 
 @Service
 public class UserServiceImpl implements UserService{
-
+	
+	@Autowired
 	private UserRepository userRepository;
 	
 	@Autowired
@@ -37,10 +38,10 @@ public class UserServiceImpl implements UserService{
 	
 	
 	
-	public UserServiceImpl(UserRepository userRepository) {
-		super();
-		this.userRepository = userRepository;
-	}
+	/*
+	 * public UserServiceImpl(UserRepository userRepository) { super();
+	 * this.userRepository = userRepository; }
+	 */
 
 	@Override
 	public User save(UserRegistrationDto registrationDto) {

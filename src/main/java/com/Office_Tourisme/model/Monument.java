@@ -19,8 +19,8 @@ public class Monument implements Serializable{
 	private String nomM;
 	private String proprietaire;
 	private String typeMonument;
-	private double longitude;
-	private double latitude;
+	private float longitude;
+	private float latitude;
 
 	@ManyToOne(cascade = CascadeType.ALL, targetEntity = Lieu.class)
 	@JoinColumn(name="codeLieu")
@@ -32,8 +32,8 @@ public class Monument implements Serializable{
 
 	public Monument() {
 	}
-	public Monument(String codeM, String nomM, String proprietaire, String typeMonument, double longitude,
-			double latitude) {
+	public Monument(String codeM, String nomM, String proprietaire, String typeMonument, float longitude,
+			float latitude) {
 		super();
 		this.codeM = codeM;
 		this.nomM = nomM;
@@ -58,16 +58,14 @@ public class Monument implements Serializable{
 		this.nomM = nomM;
 	}
 	
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name="CODELIEU")
-	public Lieu getLieu() {
+
+	
+	public Lieu getCodeLieu() {
 		return codeLieu;
 	}
-	
-	public void setLieu(Lieu codeLieu) {
+	public void setCodeLieu(Lieu codeLieu) {
 		this.codeLieu = codeLieu;
 	}
-	
 	public String getProprietaire() {
 		return proprietaire;
 	}
@@ -82,19 +80,19 @@ public class Monument implements Serializable{
 		this.typeMonument = typeMonument;
 	}	
 	
-	public double getLongitude() {
+	public float getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
 
-	public double getLatitude() {
+	public float getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(float latitude) {
 		this.latitude = latitude;
 	}
 
